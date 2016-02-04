@@ -32,7 +32,9 @@ class Diff
           line =~ /^index/ ||
           line =~ /^\-\-\-/ ||
           line =~ /^\+\+\+/ ||
-          line =~ /^\s+$/
+          line =~ /^\s+$/ ||
+          line =~ /^new/ ||
+          line =~ /^deleted/
         # skip known lines
       else
         @diff.unshift(line)

@@ -2,7 +2,7 @@ class Porter
   def self.port(line)
     newline = line.chomp
 
-    return '' if newline =~ /^\s*\/\*\*\s*$/
+    return '' if newline =~ /^\s*\/\*\*?\s*$/
     return '' if newline =~ /^\s*\*\/\s*$/
 
     # -> syntax
