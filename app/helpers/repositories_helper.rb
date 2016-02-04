@@ -16,6 +16,7 @@ module RepositoriesHelper
   end
 
   def diff_code(line)
+    line = ' ' if line.blank?
     line = CGI.escapeHTML(line)
     raw line.gsub(' ', '&nbsp;')
   end

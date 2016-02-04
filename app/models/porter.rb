@@ -2,8 +2,8 @@ class Porter
   def self.port(line)
     newline = line.chomp
 
-    return ' ' if newline =~ /^\s*\/\*\*\s*$/
-    return ' ' if newline =~ /^\s*\*\/\s*$/
+    return '' if newline =~ /^\s*\/\*\*\s*$/
+    return '' if newline =~ /^\s*\*\/\s*$/
 
     # -> syntax
     newline.gsub!(/\$this->([a-z][a-zA-Z0-9_]*)$/) {|m| "@#{$1.underscore}" }

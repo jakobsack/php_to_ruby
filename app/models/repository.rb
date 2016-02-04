@@ -22,7 +22,7 @@ class Repository < ActiveRecord::Base
 
   # updates pulled_at row
   def update_pulled_at
-    pulled_at = Time.now
+    self.pulled_at = Time.now
   end
 
   # Fetches the repository

@@ -59,17 +59,17 @@ class Diff
       elsif line[0] == '+'
         @parsed[@file] << {
           type: :added,
-          line: line[1..-1] || ''
+          line: line[1..-1]
         }
       elsif line[0] == '-'
         @parsed[@file] << {
           type: :removed,
-          line: line[1..-1] || ''
+          line: line[1..-1]
         }
       else
         @parsed[@file] << {
           type: :equal,
-          line: line[1..-1] || ''
+          line: line[1..-1]
         }
       end
     end
