@@ -7,7 +7,7 @@ class Porter
 
     # -> syntax
     newline.gsub!(/\$this->([a-z][a-zA-Z0-9_]*)$/) {|m| "@#{$1.underscore}" }
-    newline.gsub!(/\$this->([a-z][a-zA-Z0-9_]*)([^a-zA-Z0-9_\(])$/) {|m| "@#{$1.underscore}" }
+    newline.gsub!(/\$this->([a-z][a-zA-Z0-9_]*)([^a-zA-Z0-9_\(])$/) {|m| "@#{$1.underscore}#{$2}" }
 
     newline.gsub!(/->([a-z][a-zA-Z0-9_]*)/) {|m| ".#{$1.underscore}" }
     newline.gsub!('$this', 'self')
