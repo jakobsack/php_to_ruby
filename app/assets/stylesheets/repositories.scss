@@ -1,0 +1,25 @@
+// Place all the styles related to the Repositories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table.diff {
+  width: 100%;
+}
+
+.diff-code {
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: auto;
+}
+
+.diff-type-added {
+  background-color:#ddffdd;
+}
+
+.diff-type-removed {
+  background-color:#ffdddd;
+}
+
+.diff-type-locator {
+  background-color:#d9edf7;
+}

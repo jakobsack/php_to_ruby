@@ -1,0 +1,19 @@
+.container-fluid
+  %h1 #{@repository.name}: #{@from.name} .. #{@to.name}
+
+  - @diff.each do |file, lines|
+    .row
+      %h2= diff_title(file)
+
+      .col-md-6
+        .diff-code
+          - lines.each do |line|
+            %div{ class: "diff-type-#{line[:type]}" }= diff_code(line[:line])
+
+      - if diff_php_file?(file)
+        .col-md-6
+          .diff-code
+            - lines.each do |line|
+              %div{ class: "diff-type-#{line[:type]}" }= diff_code(diff_port(line[:line]))
+
+  %p= link_to 'back', repository_path(@repository)

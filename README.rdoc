@@ -1,0 +1,12 @@
+= README
+
+This Rails app helps you porting php code to ruby.
+
+**Do not run this on a public accessible computer**
+
+== Install instructions
+
+1. Clone this repository
+2. run `bundle install`
+3. run `bundle exec bin/rails s`
+4. open `127.0.0.1:3000` in your browser

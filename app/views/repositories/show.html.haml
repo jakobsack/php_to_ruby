@@ -1,0 +1,60 @@
+.container
+  %h1= @repository.name
+
+  %p
+    = link_to 'Edit name', edit_repository_path(@repository)
+    \|
+    = link_to 'Delete', @repository, method: :delete, data: { confirm: 'Are you sure?' }
+
+  %p
+    %strong Url:
+    = @repository.url
+
+  %p
+    %strong Pulled at:
+    = l @repository.pulled_at
+
+  = form_tag fetch_repository_path(@repository), method: :post do
+    = submit_tag 'Update repository', class: 'btn btn-primary'
+
+  %h2 Compare
+
+  = form_tag diff_repository_path(@repository), method: :get do
+    .row
+      .col-md-6
+        %h3 Tags
+
+        %table.table.table-striped
+          %thead
+            %tr
+              %th From
+              %th To
+          %tbody
+            - @repository.tags.each do |tag|
+              %tr
+                %td
+                  = radio_button_tag 'from', "tag#{tag.id}"
+                  = label_tag "from_tag#{tag.id}", tag.name
+                %td
+                  = radio_button_tag 'to', "tag#{tag.id}"
+                  = label_tag "to_tag#{tag.id}", tag.name
+
+      .col-md-6
+        %h3 Branches
+
+        %table.table.table-striped
+          %thead
+            %tr
+              %th From
+              %th To
+          %tbody
+            - @repository.branches.each do |branch|
+              %tr
+                %td
+                  = radio_button_tag 'from', "branch#{branch.id}"
+                  = label_tag "from_branch#{branch.id}", branch.name
+                %td
+                  = radio_button_tag 'to', "branch#{branch.id}"
+                  = label_tag "to_branch#{branch.id}", branch.name
+
+    = submit_tag 'Compare!', class: 'btn btn-primary'

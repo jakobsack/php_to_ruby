@@ -1,0 +1,17 @@
+.container
+  %h1 Available Repositories
+
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Name
+        %th Url
+        %th Pulled at
+    %tbody
+      - @repositories.each do |repository|
+        %tr
+          %td= link_to repository.name, repository_path(repository)
+          %td= repository.url
+          %td= l repository.pulled_at
+
+  %p= link_to 'Add Repository', new_repository_path

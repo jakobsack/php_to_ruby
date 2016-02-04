@@ -1,0 +1,23 @@
+!!!5
+%html
+  %head
+    %title PhpToRuby
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body{ role: 'document' }
+    %nav.navbar.navbar-inverse
+      .container
+        .navbar-header
+          %button.navbar-toggle.collapsed{ type: 'button', data: { toggle: 'collapse', target: '#navbar' }, aria: { expanded: false, controls: 'navbar' } }
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to 'PhpToRuby', repositories_path, class: 'navbar-brand'
+        #navbar.navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            %li= link_to 'Repositories', repositories_path
+    = flash_messages
+    %div{role: 'main'}
+      = yield
